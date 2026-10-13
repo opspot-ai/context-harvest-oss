@@ -1,0 +1,38 @@
+{
+  "name": "context-harvest",
+  "version": "0.0.0",
+  "private": true,
+  "packageManager": "pnpm@11.6.0",
+  "description": "Governed, attributable context retrieval over sources the customer controls.",
+  "type": "module",
+  "engines": {
+    "node": "^24.0.0 || ^26.0.0"
+  },
+  "bin": {
+    "context-harvest": "./bin/context-harvest.js"
+  },
+  "scripts": {
+    "demo": "node scripts/demo.js",
+    "describe": "node scripts/describe.js",
+    "test": "node --test --test-concurrency=1 'test/**/*.test.js'",
+    "test:egress-boundary": "sh scripts/test-egress-boundary.sh",
+    "serve:http": "node bin/context-harvest.js serve --http",
+    "serve:mcp": "node bin/context-harvest.js serve --mcp"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "1.31.0"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/opspot-ai/context-harvest-oss"
+  },
+  "homepage": "https://github.com/opspot-ai/context-harvest-oss#readme",
+  "files": [
+    "bin/",
+    "src/",
+    "README.md",
+    "LICENSE",
+    "NOTICE.md"
+  ]
+}

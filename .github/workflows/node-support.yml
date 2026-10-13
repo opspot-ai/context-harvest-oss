@@ -1,0 +1,46 @@
+name: Node support
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    name: Node ${{ matrix.node }}
+    runs-on: macos-15
+    strategy:
+      fail-fast: false
+      matrix:
+        node:
+          - 24.21.0
+          - 26.7.0
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7.0.1
+      - name: Install pnpm
+        uses: pnpm/action-setup@v6.1.0
+        with:
+          version: 11.6.0
+      - name: Install Node.js
+        uses: actions/setup-node@v7.1.0
+        with:
+          node-version: ${{ matrix.node }}
+          cache: pnpm
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile --ignore-scripts
+      - name: Run full suite
+        run: pnpm test
+      - name: Audit production dependencies
+        run: pnpm audit --prod
+      - name: Run synthetic demo
+        run: pnpm run demo
+      - name: Check discovery output
+        run: node scripts/describe.js
+      - name: Verify external egress boundary
+        run: CH_EXPECTED_NODE_VERSION="$(node -p 'process.version')" pnpm run test:egress-boundary
