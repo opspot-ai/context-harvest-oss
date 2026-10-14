@@ -19,11 +19,9 @@ See [the detailed v0 scope](docs/SCOPE.md) and [agent guide](docs/AGENT-GUIDE.md
 
 Use Node.js 24 or 26 and pnpm 11.6.0. Release checks cover Node 24.21.0 and 26.7.0 on macOS. The application uses Node's built-in `node:sqlite`; there is no separate database or native build step. `pnpm-lock.yaml` pins the dependency graph. The full external-egress test requires macOS and `sandbox-exec`; other operating systems are not covered by that test.
 
-This is a source repository, not an npm release. The package remains marked private, and no npm package is published. After the repository is made available to you, clone it and install dependencies from its root:
+This is a source repository, not an npm release. The package remains marked private, and no npm package is published. After the repository is made available to you, install dependencies from its root:
 
 ```sh
-git clone https://github.com/opspot-ai/context-harvest-oss.git
-cd context-harvest-oss
 pnpm install --frozen-lockfile --ignore-scripts
 ```
 
@@ -85,7 +83,7 @@ Example MCP client configuration (replace paths and load the key through the cli
   "mcpServers": {
     "context-harvest": {
       "command": "node",
-      "args": ["/path/to/context-harvest-oss/bin/context-harvest.js", "serve", "--mcp"],
+      "args": ["/path/to/your-checkout/bin/context-harvest.js", "serve", "--mcp"],
       "env": {
         "CH_DB": "/path/to/corpus.db",
         "CH_API_KEY": "<retrieve-scoped key from secret storage>"

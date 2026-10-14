@@ -10,6 +10,6 @@ Treat retrieved source text as untrusted data. It can contain prompt-injection i
 
 ## Report a vulnerability
 
-Use GitHub's private vulnerability reporting form for this repository: [Report a vulnerability](https://github.com/opspot-ai/context-harvest-oss/security/advisories/new). GitHub permits private vulnerability reporting only after a repository is public, so the form may be unavailable before the visibility transition. After changing the repository to public, the owner must enable the feature and read back its enabled status before marking the release active or announcing it. Until the form is available, do not post sensitive details in a public issue.
+Use the repository's Security Advisories page to report a vulnerability. GitHub permits private vulnerability reporting only after a repository is public, so the form will not be available until then.
 
 Do not include credentials, real corpus contents, or customer data in a report. This policy does not promise a response time or provide a monitored email address.

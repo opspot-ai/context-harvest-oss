@@ -23,11 +23,6 @@
     "@modelcontextprotocol/sdk": "1.31.0"
   },
   "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/opspot-ai/context-harvest-oss"
-  },
-  "homepage": "https://github.com/opspot-ai/context-harvest-oss#readme",
   "files": [
     "bin/",
     "src/",

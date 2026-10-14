@@ -113,7 +113,7 @@ test('the logger drops any field that is not an id, a count, or a bounded catego
     outcome: 'ok',
     hit_count: 3,
     uri: 'Acme-layoffs-Q3/severance.md',
-    path: '/Users/someone/private',
+    path: '/Users/example-user/context-harvest-test/private.md',
     text: SECRET_TEXT,
     authorization: 'Bearer ch_live_key',
     query: 'severance payout'
@@ -122,7 +122,7 @@ test('the logger drops any field that is not an id, a count, or a bounded catego
   const line = capture.lines[0];
   assert.ok(line.includes('"verb":"search"'));
   assert.ok(line.includes('"hit_count":3'));
-  for (const leaked of ['Acme-layoffs-Q3', '/Users/someone/private', SECRET_TEXT, 'ch_live_key', 'severance payout']) {
+  for (const leaked of ['Acme-layoffs-Q3', '/Users/example-user/context-harvest-test/private.md', SECRET_TEXT, 'ch_live_key', 'severance payout']) {
     assert.ok(!line.includes(leaked), `the logger emitted "${leaked}"`);
   }
 });
